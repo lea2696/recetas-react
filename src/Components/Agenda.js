@@ -1,12 +1,29 @@
 import React from "react";
 import Calendar from "./Calendar";
+import DayDetails from "./DayDetails";
+import styled from "styled-components";
+
+const FlexDiv = styled.div`
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  justify-content: space-around;
+  table {
+    width: 40%;
+  }
+  div {
+    width: 60%;
+  }
+`;
 
 export default class Agenda extends React.Component {
   render() {
     return (
-      <div>
+      <FlexDiv>
         <Calendar />
-      </div>
+        <DayDetails />
+      </FlexDiv>
     );
   }
 }

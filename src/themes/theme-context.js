@@ -1,22 +1,21 @@
 import React from "react";
 
-export const myContext = React.createContext();
+export const MyContext = React.createContext();
 
 export default class MyProvider extends React.Component {
   state = {
-    name: "Luis",
-    age: 23
+    daySelected: false
   };
   render() {
     return (
-      <myContext.Provider
+      <MyContext.Provider
         value={{
           state: this.state,
-          changeAge: () => this.setState({ age: this.state.age + 1 })
+          changeDay: newDate => this.setState({ daySelected: newDate })
         }}
       >
         {this.props.children}
-      </myContext.Provider>
+      </MyContext.Provider>
     );
   }
 }

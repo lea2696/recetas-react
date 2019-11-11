@@ -1,6 +1,7 @@
 import React from "react";
 import { calendarDays, calendarName } from "../helpers/Calendar-data";
 import Day from "./Day";
+import { Table } from "./styles/Table";
 
 export default class Calendar extends React.Component {
   state = {
@@ -16,7 +17,7 @@ export default class Calendar extends React.Component {
       this.state.date.days
     );
     return (
-      <table>
+      <Table>
         <thead>
           <tr>
             <th>DOM</th>
@@ -32,16 +33,23 @@ export default class Calendar extends React.Component {
           {Array(5)
             .fill(1)
             .map((Row, indexRow) => (
-              <tr>
+              <tr key={indexRow}>
                 {Array(7)
                   .fill(1)
                   .map((element, indexElement) => (
-                    <Day day={CurrentMonth[indexElement + indexRow * 7]} />
+                    <Day
+                      key={indexElement + indexRow * 7}
+                      date={{
+                        day: CurrentMonth[indexElement + indexRow * 7],
+                        month: this.state.date.numberOfYear,
+                        year: this.state.date.numberOfYear
+                      }}
+                    />
                   ))}
               </tr>
             ))}
         </tbody>
-      </table>
+      </Table>
     );
   };
 
