@@ -24,12 +24,55 @@ const recipes = [
     ],
     description: "Hacerlo rico"
   },
+  {
+    name: "Hamburguesa de pollo",
+    ingredients: [
+      "Pan", "Salsas", "Pollo"
+    ],
+    description: "Hacerlo rico"
+  },
+  {
+    name: "Hamburguesa de carne",
+    ingredients: [
+      "Pan", "Salsas", "Carne"
+    ],
+    description: "Hacerlo rico"
+  },
+  {
+    name: "Hamburguesa de Cerdo",
+    ingredients: [
+      "Pan", "Salsas", "Cerdo"
+    ],
+    description: "Hacerlo rico"
+  },
+  {
+    name: "Hamburguesa de pollo",
+    ingredients: [
+      "Pan", "Salsas", "Pollo"
+    ],
+    description: "Hacerlo rico"
+  },
+  {
+    name: "Hamburguesa de carne",
+    ingredients: [
+      "Pan", "Salsas", "Carne"
+    ],
+    description: "Hacerlo rico"
+  },
+  {
+    name: "Hamburguesa de Cerdo",
+    ingredients: [
+      "Pan", "Salsas", "Cerdo"
+    ],
+    description: "Hacerlo rico"
+  },
 ]
 
 export default class MyProvider extends React.Component {
   state = {
     daySelected: false,
-    recipes
+    recipes,
+    recipesAgenda: [{}],
   };
   render() {
     return (
@@ -46,7 +89,14 @@ export default class MyProvider extends React.Component {
 
                 this.setState({ daySelected: newDate }) }
 
-              }
+              },
+          addRecipe: recipe => {
+              let recipesAgenda =[...this.state.recipesAgenda];
+              recipesAgenda.push(recipe);
+              this.setState({
+                recipesAgenda
+              })
+          }
 
 
         }}

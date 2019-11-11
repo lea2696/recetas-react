@@ -22,8 +22,6 @@ function App() {
       
           <BrowserRouter>
           <GlobalStyle />
-
-        
           <Header />
            <Route path="/" exact component = {page}></Route>    
            <Route path="/agenda" component = {Agenda}></Route>

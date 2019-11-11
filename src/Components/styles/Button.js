@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ButtonGroup = styled.div`
         display: flex;
         width: 100%;
-        border: 1px solid black;
         justify-content: space-between;
         margin: 0 auto;
         button {

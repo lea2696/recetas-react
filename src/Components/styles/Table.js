@@ -13,23 +13,38 @@ export const Table = styled.table`
   td {
     display: inline-block;
     width: 75px;
-    height: 75px;
+    min-height: 75px;
     margin: 0;
     padding: 0;
     text-align: center;
+    table-layout:fixed;
+      div{
+          p {
+            font-weight: bolder;
+            
+          }
+          .recipe-agenda{
+                font-size: 0.6rem;
+                display: block;
+                width: 100%;
+                background-color: ${props => props.theme.blue};
+                border-top: 1px solid white;
+              }
+
+      }
      
-    p {
-      text-align: center;
-      font-weight: bolder;
-    }
   }
   .today{
         border: 3px solid #6882e8;
-        box-sizing: border-box;
+        height: 100%;
+        display: inline-block;
+
       }
   .selected{
+    display: inline-block;
     border: 3px solid #54d11f;
-    box-sizing: border-box;
+    height: 100%;
+
   }
   thead { 
     background-color: ${props => props.theme.blue};

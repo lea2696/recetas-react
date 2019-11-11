@@ -10,11 +10,9 @@ const FlexDiv = styled.div`
   padding: 20px;
   justify-content: space-around;
   table {
-    width: 40%;
+    width: 50%;
   }
-  div {
-    width: 60%;
-  }
+ 
 `;
 
 export default class Agenda extends React.Component {
