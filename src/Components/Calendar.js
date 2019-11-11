@@ -2,6 +2,7 @@ import React from "react";
 import { calendarDays, calendarName } from "../helpers/Calendar-data";
 import Day from "./Day";
 import { Table } from "./styles/Table";
+import { ButtonGroup } from "./styles/Button"
 
 export default class Calendar extends React.Component {
   state = {
@@ -41,7 +42,7 @@ export default class Calendar extends React.Component {
                       key={indexElement + indexRow * 7}
                       date={{
                         day: CurrentMonth[indexElement + indexRow * 7],
-                        month: this.state.date.numberOfYear,
+                        month: this.state.date.numberOfMonth,
                         year: this.state.date.numberOfYear
                       }}
                     />
@@ -155,11 +156,16 @@ export default class Calendar extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.state.date.name}</h2>
+        <h2>{this.state.date.name} {this.state.date.numberOfYear}</h2>
         {this.getCalendar()}
+        <ButtonGroup>
+
+      
         <button onClick={this.goToPreviousMonth}>Mes Anterior</button>
         <button onClick={this.goToCurrentMonth}>Mes Actual</button>
         <button onClick={this.goToNextMonth}>Mes Siguiente</button>
+
+        </ButtonGroup>
       </div>
     );
   }

@@ -23,6 +23,10 @@ export const Nav = styled.div`
       font-weight: weight;
       width: 33%;
       list-style: none;
+        a {
+          text-decoration: none;
+          color: ${props => props.theme.black}
+        }
     }
   }
 `;

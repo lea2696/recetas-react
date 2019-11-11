@@ -4,24 +4,35 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-radius: 30px;
+  border-spacing: 0px;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-
+    tr {
+      border-bottom: 1px solid black;
+    }
+  
   td {
-    border-bottom: 1px solid black;
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     margin: 0;
     padding: 0;
     text-align: center;
+     
     p {
       text-align: center;
       font-weight: bolder;
     }
   }
-  thead {
-    border-bottom: 1px solid black;
-    background-color: #6882e8;
+  .today{
+        border: 3px solid #6882e8;
+        box-sizing: border-box;
+      }
+  .selected{
+    border: 3px solid #54d11f;
+    box-sizing: border-box;
+  }
+  thead { 
+    background-color: ${props => props.theme.blue};
     color: white;
     tr {
       display: flex;
@@ -31,8 +42,9 @@ export const Table = styled.table`
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 50px;
-      height: 50px;
+      font-size: 1.3rem;
+      width: 75px;
+      height: 75px;
       margin: 0;
       padding: 0;
     }
