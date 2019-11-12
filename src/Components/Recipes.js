@@ -7,13 +7,13 @@ const RecipeContainer = styled.div`
         margin: 1%;
          padding: 10px;
          border-radius: 20px;
-         box-shadow: 5px 5px 5px ${props => props.theme.black};
+         box-shadow: 2px 2px 2px ${props => props.theme.red};
       
          h3{
              text-align: center;
              
          }
-         span{
+         p{
              text-decoration: underline;
              font-weight: bolder;
          }
@@ -31,9 +31,14 @@ export const Recipe = (props) =>{
        <h3>
            {props.recipe.name}
        </h3>
-       <span>Ingredientes: </span>
+       <p>Ingredientes: </p>
        <ul>
-         { props.recipe.ingredients.map(ingredient=> <li>{ingredient}</li>) }
+         { props.recipe.ingredients.map(ingredient=> 
+         <li>
+        <span>{ingredient.name} </span> 
+        <span>{ingredient.amount} </span> 
+        <span>{ingredient.unit} </span>
+         </li>) }
        </ul>
        <p>
            <span>Preparacion: </span> 

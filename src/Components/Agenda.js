@@ -11,7 +11,8 @@ const FlexDiv = styled.div`
   justify-content: space-around;
   table {
     width: 50%;
-  }
+  };
+  
  
 `;
 

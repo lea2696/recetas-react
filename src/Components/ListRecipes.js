@@ -2,7 +2,8 @@ import React from "react";
 import { Recipe } from "./Recipes";
 import styled from "styled-components";
 import {MyContext} from "../themes/theme-context";
-
+import { Title } from "./styles/Title"
+import { Link } from "react-router-dom"
 const ContainerRecipes = styled.div `
     display: flex;
     flex-wrap: wrap;
@@ -27,13 +28,21 @@ const ContainerRecipes = styled.div `
 
         }
 `
-const Title = styled.h2`
+const AddRecipeButton = styled.button`
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    color: black;
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+        }
 
-                font-family: "Lobster", cursive;
-                font-size: 2.5rem;
-                text-align: center;
-                    
-            `
+`
 export default class ListRecipes extends React.Component{
         showRecipes = (context) => {
             console.log(context);
@@ -46,6 +55,9 @@ export default class ListRecipes extends React.Component{
                     context =>(
                      
                         <>
+                        <AddRecipeButton>
+                            <Link to="/recetas/nuevareceta" >Crear receta</Link>
+                        </AddRecipeButton>
                         <Title>
                             Recetas
                         </Title>

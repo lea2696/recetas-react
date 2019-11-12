@@ -5,6 +5,7 @@ import MyProvider from "./themes/theme-context";
 import { BrowserRouter, Route} from "react-router-dom";
 import ListRecipes from "./Components/ListRecipes"
 import ListShopping from "./Components/ListShopping";
+import NewRecipe from "./Components/NewRecipe";
 
 
 import "./App.css";
@@ -25,7 +26,8 @@ function App() {
           <Header />
            <Route path="/" exact component = {page}></Route>    
            <Route path="/agenda" component = {Agenda}></Route>
-           <Route path="/recetas" component= {ListRecipes}></Route>
+           <Route path="/recetas" exact component= {ListRecipes}></Route>
+           <Route path="/recetas/nuevareceta" component={NewRecipe}></Route>
            <Route path="/lista" component={ListShopping}></Route>
           </BrowserRouter>
       </MyProvider>

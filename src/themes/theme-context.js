@@ -2,70 +2,85 @@ import React from "react";
 
 export const MyContext = React.createContext();
 
+
 const recipes = [
   {
     name: "Hamburguesa de pollo",
     ingredients: [
-      "Pan", "Salsas", "Pollo"
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de carne",
-    ingredients: [
-      "Pan", "Salsas", "Carne"
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de Cerdo",
-    ingredients: [
-      "Pan", "Salsas", "Cerdo"
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      "Pan", "Salsas", "Pollo"
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de carne",
-    ingredients: [
-      "Pan", "Salsas", "Carne"
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de Cerdo",
-    ingredients: [
-      "Pan", "Salsas", "Cerdo"
+      {
+        name: "Pan",
+        amount: "2",
+        unit: "unidad"
+      },
+      {
+        name: "Salsas",
+        amount: "2",
+        unit: "unidad"
+      },
+      {
+        name: "Pollo",
+        amount: "200",
+        unit: "gr"
+      },
     ],
     description: "Hacerlo rico"
   },
   {
     name: "Hamburguesa de pollo",
     ingredients: [
-      "Pan", "Salsas", "Pollo"
+      {
+        name: "Pan",
+        amount: "2",
+        unit: "unidad"
+      }
     ],
     description: "Hacerlo rico"
   },
   {
-    name: "Hamburguesa de carne",
+    name: "Hamburguesa de pollo",
     ingredients: [
-      "Pan", "Salsas", "Carne"
+      {
+        name: "Pan",
+        amount: "2",
+        unit: "unidad"
+      }
     ],
     description: "Hacerlo rico"
   },
   {
-    name: "Hamburguesa de Cerdo",
+    name: "Hamburguesa de pollo",
     ingredients: [
-      "Pan", "Salsas", "Cerdo"
+      {
+        name: "Pan",
+        amount: "2",
+        unit: "unidad"
+      }
     ],
     description: "Hacerlo rico"
   },
+  {
+    name: "Hamburguesa de pollo",
+    ingredients: [
+      {
+        name: "Pan",
+        amount: "2",
+        unit: "unidad"
+      }
+    ],
+    description: "Hacerlo rico"
+  },
+  {
+    name: "Hamburguesa de pollo",
+    ingredients: [
+      {
+        name: "Pan",
+        amount: "2",
+        unit: "unidad"
+      }
+    ],
+    description: "Hacerlo rico"
+  },
+ 
 ]
 
 export default class MyProvider extends React.Component {
