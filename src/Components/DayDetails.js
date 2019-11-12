@@ -106,7 +106,7 @@ export default class DayDetails extends React.Component {
                 <>
                   <h3> Recetas para el  {context.state.daySelected.day} / {context.state.daySelected.month + 1} / {context.state.daySelected.year} </h3>
                   <ul>
-                    {this.showRecipes(context)}
+                    {this.showRecipes(context) }
                   </ul>
 
                   <p> Agregar mas recetas </p>
@@ -122,7 +122,7 @@ export default class DayDetails extends React.Component {
                     </div>
                     <div>
                       <label>Numero de personas</label>
-                      <input onChange={this.handleInput} value={this.state.valueInput} type="number" placeholder="numero de personas"></input>
+                      <input onChange={this.handleInput} value={this.state.valueInput} type="number" placeholder="Numero de personas"></input>
                     </div>
                     <button> Agregar receta</button>
                   </form>
