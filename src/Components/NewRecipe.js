@@ -18,13 +18,38 @@ export default class NewRecipe extends React.Component{
         name: "default",
         amount: "0",
         unit: "default"
-      }, ]
+      }, ],
+      description: ""
     }
 
     handleName = (e) => {
           this.setState({
             name: e.target.value
           })
+    }
+    handleSelectName = (e, index) =>{
+      let name = e.target.value;
+      let ingredientsArray = [...this.state.ingredientsArray];
+      ingredientsArray[index].name = name
+      this.setState({
+          ingredientsArray
+      })
+    }
+    handleSelectUnit = (e, index) =>{
+      let unit = e.target.value;
+      let ingredientsArray = [...this.state.ingredientsArray];
+      ingredientsArray[index].unit = unit
+      this.setState({
+          ingredientsArray
+      })
+    }
+    handleInputAmount = (e, index) =>{
+      let amount = e.target.value;
+      let ingredientsArray = [...this.state.ingredientsArray];
+      ingredientsArray[index].amount = amount
+      this.setState({
+          ingredientsArray
+      })
     }
     moreIngredients = () => {
       console.log(this.state.ingredientsArray)
@@ -33,28 +58,34 @@ export default class NewRecipe extends React.Component{
         name: "default",
         amount: "0",
         unit: "default"
-      },)
+      });
           this.setState({
             ingredientsArray
           })
     }
+    handleDescription = (e) =>{
+      let description = e.target.value;
+      this.setState({
+        description
+      })
+    }
     showIngredients = () => {
       return this.state.ingredientsArray.map(
         (ingredients, index) =>(
-        <div>
+        <div key={index}>
         <label>Nombre</label>
-        <select value={this.state.ingredientsArray[index].name}>
+        <select value={this.state.ingredientsArray[index].name} onChange={(e)=>this.handleSelectName(e, index)}>
           <option value="default">
             Selecciona un ingrediente
           </option>
             {Ingredients.map(ingredient=>(
-    <option value={ingredient}>{ingredient}</option>
+    <option key={ingredient} value={ingredient}>{ingredient}</option>
             ))}
         </select>
         <label>Cantidad</label>
-        <input  type="number" value={this.state.ingredientsArray[index].amount}></input>
+        <input  type="number" value={this.state.ingredientsArray[index].amount} onChange={(e)=>this.handleInputAmount(e, index)}/>
           <label>Unidad</label>
-        <select value={this.state.ingredientsArray[index].unit}>
+        <select value={this.state.ingredientsArray[index].unit} onChange={(e)=>this.handleSelectUnit(e, index)}>
           <option value="default">
             Selecciona una unidad
           </option>
@@ -92,6 +123,9 @@ export default class NewRecipe extends React.Component{
           <p>Ingredientes: </p>
           {this.showIngredients()}
             <span onClick = {this.moreIngredients}>+</span>
+            <textarea value={this.state.description} onChange={this.handleDescription} 
+            placeholder="Descripcion de la receta(opcional)" />
+
          </form>
            </>
         )
