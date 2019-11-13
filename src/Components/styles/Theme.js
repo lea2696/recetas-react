@@ -4,7 +4,7 @@ export const theme = {
   black: "#393939",
   red: "#FF0000",
   blue: "#4e8ff3",
-  orange: "#FF0512"
+  orange: "#e86000"
 };
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -20,4 +20,4 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit
   }
 
-`
+`;

@@ -6,10 +6,10 @@ export const Table = styled.table`
   border-radius: 30px;
   border-spacing: 0px;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-    tr {
-      border-bottom: 1px solid black;
-    }
-  
+  tr {
+    border-bottom: 1px solid black;
+  }
+
   td {
     display: inline-block;
     width: 75px;
@@ -17,41 +17,36 @@ export const Table = styled.table`
     margin: 0;
     padding: 0;
     text-align: center;
-    table-layout:fixed;
-      div{
-          p {
-            font-weight: bolder;
-            
-          }
-          .recipe-agenda{
-                font-size: 0.6rem;
-                display: block;
-                width: 100%;
-                background-color: ${props => props.theme.blue};
-                border-top: 1px solid white;
-              }
-
+    table-layout: fixed;
+    div {
+      p {
+        font-weight: bolder;
       }
-     
+      .recipe-agenda {
+        font-size: 0.6rem;
+        display: block;
+        width: 100%;
+        background-color: ${props => props.theme.blue};
+        border-top: 1px solid white;
+      }
+    }
   }
-  .today{
-        border: 3px solid #6882e8;
-        height: 100%;
-        display: inline-block;
-
-      }
-  .selected{
+  .today {
+    border: 3px solid ${props => props.theme.red};
+    height: 100%;
+    display: inline-block;
+  }
+  .selected {
     display: inline-block;
     border: 3px solid #54d11f;
     height: 100%;
-
   }
-  thead { 
-    background-color: ${props => props.theme.blue};
+  thead {
+    background-color: ${props => props.theme.orange};
     color: white;
     tr {
       display: flex;
-      border: 2px solid #17329b;
+      border: 2px solid red;
     }
     th {
       display: flex;
