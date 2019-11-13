@@ -42,7 +42,7 @@ export const Table = styled.table`
     height: 100%;
   }
   thead {
-    background-color: ${props => props.theme.orange};
+    background-color: ${props => props.theme.black};
     color: white;
     tr {
       display: flex;
