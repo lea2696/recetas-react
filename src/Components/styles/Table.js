@@ -46,7 +46,6 @@ export const Table = styled.table`
     color: white;
     tr {
       display: flex;
-      border: 2px solid red;
     }
     th {
       display: flex;

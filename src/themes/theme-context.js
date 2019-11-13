@@ -111,6 +111,13 @@ export default class MyProvider extends React.Component {
               this.setState({
                 recipesAgenda
               })
+          },
+          addToListOfRecipe: recipe => {
+            let recipes = [...this.state.recipes];
+            recipes.push(recipe);
+            this.setState({
+              recipes
+            })
           }
 
 

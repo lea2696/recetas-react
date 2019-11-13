@@ -4,7 +4,7 @@ export const theme = {
   black: "#393939",
   red: "#FF0000",
   blue: "#4e8ff3",
-  orange: "#e86000"
+  orange: "#ffa500"
 };
 export const GlobalStyle = createGlobalStyle`
   html {

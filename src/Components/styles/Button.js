@@ -27,3 +27,29 @@ export const ButtonGroup = styled.div`
     }
   }
 `;
+export const ButtonGroupDark = styled.div`
+display: flex;
+justify-content: center;
+button, span {
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: ${props => props.theme.gray};
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.2s ease 0s;
+    &:enabled:hover {
+      background: ${props => props.theme.black};
+      letter-spacing: 1px;
+      color: white;
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+      transition: all 0.4s ease 0s;
+    }
+}
+`
