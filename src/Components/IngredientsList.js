@@ -36,7 +36,7 @@ export default class IngredientList extends React.Component {
                     element.recipe.recipe.ingredients.map( ingredient => <li>{ingredient.name}</li>)
                         
                          )}
-                    {recipes.length === 0 && <p> Oops! Parece que no hay ninguna receta para este intervalo,
+                    {recipes.length === 0 && <p className="bolder"> Oops! Parece que no hay ninguna receta para este intervalo,
                         puedes agregarlo desde la seccion de Agenda</p>}
            
             </ul>
