@@ -87,7 +87,7 @@ export default class MyProvider extends React.Component {
   state = {
     daySelected: false,
     recipes,
-    recipesAgenda: [{}],
+    recipesAgenda: [],
   };
   render() {
     return (
@@ -118,6 +118,9 @@ export default class MyProvider extends React.Component {
             this.setState({
               recipes
             })
+          },
+          getRecipesAgenda: () => {
+            return [...this.state.recipesAgenda];
           }
 
 

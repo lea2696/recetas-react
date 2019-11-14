@@ -19,5 +19,10 @@ export const GlobalStyle = createGlobalStyle`
   *, *::after, *::before {
     box-sizing: inherit
   }
+  .center{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+  }
 
 `;

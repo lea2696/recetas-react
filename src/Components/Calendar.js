@@ -156,7 +156,7 @@ export default class Calendar extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.state.date.name} {this.state.date.numberOfYear}</h2>
+        <h2 className="center">{this.state.date.name} {this.state.date.numberOfYear}</h2>
         {this.getCalendar()}
         <ButtonGroup>
 

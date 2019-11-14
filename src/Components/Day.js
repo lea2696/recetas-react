@@ -36,7 +36,7 @@ export default class Day extends React.Component {
         }
            
           return(
-          <td className = {`${isToday ? "today" : ""} ${check ? "selected"  : ""}`}  onClick={() => this.selectDay(context)}>
+            <td className = {`${isToday ? "today" : ""} ${check ? "selected"  : ""}`}  onClick={() => this.selectDay(context)}>
             <div>
 
          
