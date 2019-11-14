@@ -1,93 +1,16 @@
 import React from "react";
-
+import { recipes } from "../helpers/RecipesData"; 
 export const MyContext = React.createContext();
 
 
-const recipes = [
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      {
-        name: "Pan",
-        amount: "2",
-        unit: "unidad"
-      },
-      {
-        name: "Salsas",
-        amount: "2",
-        unit: "unidad"
-      },
-      {
-        name: "Pollo",
-        amount: "200",
-        unit: "gr"
-      },
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      {
-        name: "Pan",
-        amount: "2",
-        unit: "unidad"
-      }
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      {
-        name: "Pan",
-        amount: "2",
-        unit: "unidad"
-      }
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      {
-        name: "Pan",
-        amount: "2",
-        unit: "unidad"
-      }
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      {
-        name: "Pan",
-        amount: "2",
-        unit: "unidad"
-      }
-    ],
-    description: "Hacerlo rico"
-  },
-  {
-    name: "Hamburguesa de pollo",
-    ingredients: [
-      {
-        name: "Pan",
-        amount: "2",
-        unit: "unidad"
-      }
-    ],
-    description: "Hacerlo rico"
-  },
- 
-]
+
 
 export default class MyProvider extends React.Component {
   state = {
     daySelected: false,
     recipes,
     recipesAgenda: [],
+    dateInterval: {}
   };
   render() {
     return (
@@ -121,7 +44,15 @@ export default class MyProvider extends React.Component {
           },
           getRecipesAgenda: () => {
             return [...this.state.recipesAgenda];
-          }
+          },
+          putDateInterval: (interval) =>{
+              this.setState({
+                dateInterval: interval
+              })
+          },
+          getDateInterval: ()=>(
+            {...this.state.dateInterval}
+          )
 
 
         }}

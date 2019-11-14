@@ -41,7 +41,7 @@ export default class Day extends React.Component {
 
          
             <p>{this.props.date.day || " "}</p>
-            {recipes.map((recipe, i )=> <p className="recipe-agenda" key={i}>{recipe.recipe.name} </p> )|| ""}
+            {recipes.map((recipe, i )=> <p className="recipe-agenda" key={i}>{recipe.recipe.recipe.name} </p> )|| ""}
 
             </div>
           </td>

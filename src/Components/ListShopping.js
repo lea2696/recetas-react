@@ -2,7 +2,7 @@ import React from "react";
 import { MyContext } from "../themes/theme-context"
 import  MaterialUIPickers  from "./Datapicker";
 import styled from  "styled-components"
-import Button from '@material-ui/core/Button';
+import IngredientsList from "./IngredientsList"
 
 import {Title} from "./styles/Title";
 
@@ -15,36 +15,56 @@ const ContainerDate = styled.div`
 `
 
 export default class ListShopping extends React.Component {
+
+        componentDidMount(){
+            let interval  = this.context.getDateInterval();
+            console.log(interval);
+            if(interval !== {}){
+                this.setState({
+                    firstDate: interval.firstDate || new Date(),
+                    finalDate: interval.finalDate
+                })
+
+                this.searchRecipes();
+            }
+        }
+
     state = {
         firstDate: new Date(),
-        finalDay: false,
+        finalDate: new Date(),
         recipes: []
     }
     changeFirstDate = (date) =>{
         let firstDate = date;
         this.setState({
             firstDate
-        })
+        });
+        let interval = this.context.getDateInterval();
+        interval.finalDate = firstDate;
+        this.context.putDateInterval(interval)
+
+
     }
     changeSecondDate = (date) => {
         let finalDate = date;
         this.setState({
             finalDate
-        })
+        });
+        let interval = this.context.getDateInterval();
+        interval.finalDate = finalDate;
+        this.context.putDateInterval(interval)
+
     }
-    searchRecipes = (context) =>{
-        let recipes = context.getRecipesAgenda();
+    searchRecipes = () =>{
+        let recipes = this.context.getRecipesAgenda();
         
         this.setState({
             recipes
         });
-        console.log(this.state.recipes)
     }
     
     render(){
-
-            console.log(this.state.recipes)
-
+        console.log(this.state.recipes);
         return (
          <div> 
                 <Title>Selecciona un intervalo de fechas para generar una lista</Title>
@@ -60,17 +80,16 @@ export default class ListShopping extends React.Component {
                  <>
                     <div className="center">
 
-                        <Button  color="secondary" variant="contained" onClick={()=>this.searchRecipes(context)}>Generar lista</Button>
 
                     </div>
                     <div>
                         {this.state.recipes[0] &&
-                        <Title> Ingredientes </Title> }
-                        <ul>
-                            {this.state.recipes.map(element=>(
-                                    <li>{element.recipe.name}</li>
-                            ))}
-                        </ul>
+                        <>
+                        <Title> Ingredientes </Title> 
+                        <IngredientsList  getCurrentList={context.getListOfShopping} putCurrentList={context.addListOfShopping}
+                            recipes={this.state.recipes}  firstDate={this.state.firstDate} finalDate={this.state.finalDate} />
+                        </>
+                        }
 
                     </div>
 
@@ -84,3 +103,4 @@ export default class ListShopping extends React.Component {
         )
     }
 }
+ListShopping.contextType = MyContext;
