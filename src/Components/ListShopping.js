@@ -15,13 +15,17 @@ const ContainerDate = styled.div`
 `
 
 export default class ListShopping extends React.Component {
+    constructor(props){
+        super(props)
+
+    }
 
         componentDidMount(){
             let interval  = this.context.getDateInterval();
             console.log(interval);
             if(interval !== {}){
                 this.setState({
-                    firstDate: interval.firstDate || new Date(),
+                    firstDate: interval.firstDate,
                     finalDate: interval.finalDate
                 })
 
@@ -30,8 +34,8 @@ export default class ListShopping extends React.Component {
         }
 
     state = {
-        firstDate: new Date(),
-        finalDate: new Date(),
+        firstDate: false,
+        finalDate: false,
         recipes: []
     }
     changeFirstDate = (date) =>{
@@ -40,7 +44,7 @@ export default class ListShopping extends React.Component {
             firstDate
         });
         let interval = this.context.getDateInterval();
-        interval.finalDate = firstDate;
+        interval.firstDate = firstDate;
         this.context.putDateInterval(interval)
 
 
@@ -67,13 +71,13 @@ export default class ListShopping extends React.Component {
         console.log(this.state.recipes);
         return (
          <div> 
-                <Title>Selecciona un intervalo de fechas para generar una lista</Title>
+                        <Title>Selecciona un intervalo de fechas para generar una lista</Title>
+             
                 <ContainerDate>
 
-             
                         <MaterialUIPickers title="Inicio" Date={this.state.firstDate} changeDate = {this.changeFirstDate} ></MaterialUIPickers>
-                        <MaterialUIPickers title="Final" Date={this.state.finalDate} changeDate = {this.changeSecondDate} min={this.state.firstDate}></MaterialUIPickers>
-
+                      {this.state.firstDate &&  <MaterialUIPickers title="Final" Date={this.state.finalDate} changeDate = {this.changeSecondDate} min={this.state.firstDate}></MaterialUIPickers>
+                        }
                 </ContainerDate>
          <MyContext.Consumer>
              {context =>(
@@ -83,13 +87,14 @@ export default class ListShopping extends React.Component {
 
                     </div>
                     <div>
-                        {this.state.recipes[0] &&
+                        {this.state.finalDate &&
                         <>
                         <Title> Ingredientes </Title> 
-                        <IngredientsList  getCurrentList={context.getListOfShopping} putCurrentList={context.addListOfShopping}
+                        <IngredientsList
                             recipes={this.state.recipes}  firstDate={this.state.firstDate} finalDate={this.state.finalDate} />
                         </>
                         }
+                   
 
                     </div>
 

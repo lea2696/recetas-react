@@ -29,13 +29,15 @@ export default class IngredientList extends React.Component {
         };
 
         let recipes = this.props.recipes.filter(recipe => this.checkInterval(recipe.day, firstObject, finalObject));
-
+        console.log(recipes)
         return (
             <ul>
                     {recipes.map(element=> 
                     element.recipe.recipe.ingredients.map( ingredient => <li>{ingredient.name}</li>)
                         
                          )}
+                    {recipes.length === 0 && <p> Oops! Parece que no hay ninguna receta para este intervalo,
+                        puedes agregarlo desde la seccion de Agenda</p>}
            
             </ul>
 
