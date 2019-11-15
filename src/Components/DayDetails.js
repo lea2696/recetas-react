@@ -64,9 +64,9 @@ export default class DayDetails extends React.Component {
             if (context.state.daySelected) {
               return (
                 <>
-                  <h3> Recetas para el  {context.state.daySelected.day} / {context.state.daySelected.month + 1} / {context.state.daySelected.year} </h3>
+                  <h3> Recetas para el  {context.state.daySelected.day}/{context.state.daySelected.month + 1}/{context.state.daySelected.year} </h3>
                   <ul>
-                    {this.showRecipes(context) }
+                    {this.showRecipes(context)&& <span>Parece que no tienes recetas para este dia</span> }
                   </ul>
 
                   <p> Agregar mas recetas </p>

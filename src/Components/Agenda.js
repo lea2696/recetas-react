@@ -12,6 +12,9 @@ const FlexDiv = styled.div`
   table {
     width: 50%;
   };
+  @media (max-width: 720px) {
+      flex-direction: column;
+  }
   
  
 `;

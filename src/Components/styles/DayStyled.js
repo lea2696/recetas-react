@@ -41,4 +41,15 @@ width: 40%;
           
         }
     }
+    @media (max-width: 720px){
+      margin-top: 10px;
+      width: 100%;
+      h3{
+        font-size: 1.2rem;
+
+      }
+      ul{
+        margin: 20px;
+      }
+    }
 `

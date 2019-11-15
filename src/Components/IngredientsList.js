@@ -31,6 +31,7 @@ export default class IngredientList extends React.Component {
         let recipes = this.props.recipes.filter(recipe => this.checkInterval(recipe.day, firstObject, finalObject));
         console.log(recipes)
         return (
+            <div class="center">
             <ul>
                     {recipes.map(element=> 
                     element.recipe.recipe.ingredients.map( ingredient => <li>{ingredient.name}</li>)
@@ -40,6 +41,7 @@ export default class IngredientList extends React.Component {
                         puedes agregarlo desde la seccion de Agenda</p>}
            
             </ul>
+            </div>
 
         )
     }

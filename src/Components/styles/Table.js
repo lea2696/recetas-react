@@ -49,4 +49,16 @@ export const Table = styled.table`
       padding: 0;
     }
   }
+  @media (max-width: 720px){
+    tr, thead{
+        max-width: 90vw;
+        display: flex;
+        td,tr {
+            flex: 1;
+            text-align: center;
+        }
+    }
+  
+    }
+  
 `;
