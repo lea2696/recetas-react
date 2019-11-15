@@ -17,7 +17,9 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   *, *::after, *::before {
-    box-sizing: inherit
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
   }
   .center{
     display: flex;

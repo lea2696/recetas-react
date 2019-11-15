@@ -23,7 +23,6 @@ export const Nav = styled.div`
     li {
       font-size: 1.3rem;
       font-weight: bolder;
-      width: 33%;
       list-style: none;
         a {
           text-decoration: none;
@@ -31,5 +30,27 @@ export const Nav = styled.div`
           color: ${props => props.theme.black}
         }
     }
+  }
+  @media (max-width: 720px){
+    display: block;
+    
+      h2{
+        display: block;
+         width: 100%;
+        margin: 0;
+          a {
+            display: block;
+            text-align: center;
+          }
+      }
+      ul{
+        width: 100%;
+        justify-content: center;
+          li{
+           flex: 1;
+            display: block;
+            text-align: center;
+          }
+      }
   }
 `;
