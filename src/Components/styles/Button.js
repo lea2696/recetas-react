@@ -35,15 +35,17 @@ button, span {
     color: black;
     text-transform: uppercase;
     text-decoration: none;
-    background-color: ${props => props.theme.gray};
     padding: 10px;
-    margin: 2px;
+    margin: 5px;
     border-radius: 5px;
     display: inline-block;
     border: none;
     transition: all 0.2s ease 0s;
+    a {
+      color: white;
+      text-decoration: none;
+    }
     &:enabled:hover {
-      background: ${props => props.theme.black};
       letter-spacing: 1px;
       color: white;
       -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -51,5 +53,15 @@ button, span {
       box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
       transition: all 0.4s ease 0s;
     }
+
 }
+    .success {
+      background-color: ${props => props.theme.blue}
+    }
+    .danger{
+      background-color: ${props => props.theme.red}
+    }
+    .add {
+      background-color: ${props => props.theme.green};
+    }
 `

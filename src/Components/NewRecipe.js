@@ -1,6 +1,6 @@
 import React from "react";
 import {MyContext} from "../themes/theme-context"
-
+import { Link } from "react-router-dom"
 import { Title } from "./styles/Title";
 import { Ingredients } from "../helpers/Ingredients"
 import { FormNewRecipe } from "./styles/FormNewRecipe";
@@ -56,8 +56,8 @@ export default class NewRecipe extends React.Component{
           ingredientsArray
       })
     }
-    moreIngredients = () => {
-      console.log(this.state.ingredientsArray)
+    moreIngredients = (e) => {
+      e.preventDefault();
       let ingredientsArray = [...this.state.ingredientsArray];
       ingredientsArray.push({
         name: "default",
@@ -74,7 +74,8 @@ export default class NewRecipe extends React.Component{
         description
       })
     }
-    deleteIngredient = (index) =>{
+    deleteIngredient = (index, e) =>{
+      e.preventDefault();
       let ingredientsArray = [...this.state.ingredientsArray];
       ingredientsArray.splice(index, 1);
       this.setState({
@@ -153,7 +154,7 @@ export default class NewRecipe extends React.Component{
           <option value="unidad">Unidad</option>
         </select>
         </div>
-        <a onClick = {()=>this.deleteIngredient(index)}> &times; </a>
+        <button className="deleteIngredient" onClick = {(e)=>this.deleteIngredient(index, e)}>Eliminar Ingrediente </button>
         </div>
         )
 
@@ -164,7 +165,7 @@ export default class NewRecipe extends React.Component{
       
     render(){
       let checkIngredient = true;
-      let ingredients = [...this.state.ingredientsArray].forEach(ingredient =>{
+      [...this.state.ingredientsArray].forEach(ingredient =>{
         if(ingredient.name === "default" || ingredient.amount <= 0 || ingredient.unit ==="default"){
           checkIngredient = false
         }
@@ -181,11 +182,11 @@ export default class NewRecipe extends React.Component{
              Nombre de la receta
            </label>
            <input  value={this.state.name} onChange={this.handleName}  type="text"  id="name" />
-          <p>Ingredientes: </p>
+          <p>Ingredientes </p>
           {this.showIngredients()}
             <ButtonGroupDark>
 
-            <span  onClick = {this.moreIngredients}>Añadir mas ingredientes</span>
+            <button className="add" onClick = {this.moreIngredients}>Añadir mas ingredientes</button>
 
             </ButtonGroupDark>
             <label>Descripcion</label>
@@ -193,8 +194,8 @@ export default class NewRecipe extends React.Component{
             placeholder="Descripcion de la receta(opcional)" />
    
             <ButtonGroupDark>
-              <button disabled={!check}>Agregar receta</button>
-              <button>Volver</button>
+              <button className="success" disabled={!check}>Agregar receta</button>
+              <button className="danger"><Link to="/recetas">Volver</Link> </button>
             </ButtonGroupDark>
          </FormNewRecipe>
               </>

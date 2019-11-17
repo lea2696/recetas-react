@@ -15,7 +15,8 @@ export const FormNewRecipe = styled.form`
     p{
         font-weight: bolder;
         font-size: 1.2rem;
-        margin-left: 20px;
+        margin: 20px 0px;
+        text-align: center;
     }
     .ingredients{
         display: flex;
@@ -24,6 +25,7 @@ export const FormNewRecipe = styled.form`
             label{
                 display: block;
                 font-size: 1.2rem;
+                font-weight: bolder;
             }
             input, select{
                 margin: 5px;
@@ -38,6 +40,19 @@ export const FormNewRecipe = styled.form`
                 text-decoration: 1px 1px black;
 
             }
+            .deleteIngredient {
+                background-color: ${props => props.theme.orange};
+                border: none;
+                color: white;
+                padding: 5px;
+                font-family: "Roboto", Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+                box-sizing: content-box;
+                &:hover{
+                    background-color: ${props => props.theme.red}
+                }
+
+            }
     }
     textarea{
         display: block;
@@ -47,8 +62,21 @@ export const FormNewRecipe = styled.form`
         margin: 20px auto;
     }
     @media (max-width: 720px){
-        input {
+        input#name {
             width: 80vw;
+            border: 1px solid gray;
+        }
+        .ingredients {
+            padding: 20px;
+            border-bottom: 1px solid gray;
+            input, select {
+                width: 70vw;
+                height: 30px;
+                margin: 10px;
+            }
+
+            .deleteIngredient{
+                background-color: ${props => props.theme.red}
         }
     }
 `
