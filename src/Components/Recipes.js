@@ -17,11 +17,14 @@ const RecipeContainer = styled.div`
              text-decoration: underline;
              font-weight: bolder;
          }
-       
-         button {
-                display: block;
-                margin: 0 auto;
+         li{
+             list-style: none;
          }
+       
+        @media (max-width: 720px) {
+            width: 45%;
+            margin: 0;
+        }
 ` 
 export const Recipe = (props) =>{
     return (
@@ -44,7 +47,6 @@ export const Recipe = (props) =>{
            <span>Preparacion: </span> 
           {props.recipe.description}
        </p>
-       <button>Editar Receta</button>
        </RecipeContainer>
     )
 }

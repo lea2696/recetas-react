@@ -46,4 +46,9 @@ export const FormNewRecipe = styled.form`
         border: 1px solid black;
         margin: 20px auto;
     }
+    @media (max-width: 720px){
+        input {
+            width: 80vw;
+        }
+    }
 `

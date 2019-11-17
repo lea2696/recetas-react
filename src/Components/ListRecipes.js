@@ -8,9 +8,6 @@ const ContainerRecipes = styled.div `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-          
-
         div:nth-child(odd){
             transform: rotate(3deg);
             transition: 0.4s;
@@ -20,7 +17,8 @@ const ContainerRecipes = styled.div `
         div:nth-child(even){
             transform: rotate(-3deg);
             transition: 0.4s;
-
+            z-index: 99;
+            background-color: white;
         }
         div:hover{
             transform: rotate(0deg);
@@ -34,7 +32,7 @@ const AddRecipeButton = styled.button`
     color: black;
     border: 1px solid gray;
     padding: 5px;
-    margin: 5px;
+    margin: 10px;
     border-radius: 5px;
         a{
             text-decoration: none;

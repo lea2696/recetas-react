@@ -51,7 +51,7 @@ export const Table = styled.table`
   }
   @media (max-width: 720px){
     tr, thead{
-        max-width: 90vw;
+        width: 90vw;
         display: flex;
         td,tr {
             flex: 1;

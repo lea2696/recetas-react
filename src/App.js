@@ -12,9 +12,7 @@ import "./App.css";
 import Header from "./Components/Header";
 import Agenda from "./Components/Agenda";
 
-const page = () =>{
-  return <div>Page</div>
-}
+
 
 function App() {
   return (
@@ -24,7 +22,7 @@ function App() {
           <BrowserRouter>
           <GlobalStyle />
           <Header />
-           <Route path="/" exact component = {page}></Route>    
+           <Route path="/" exact component = {Agenda}></Route>    
            <Route path="/agenda" component = {Agenda}></Route>
            <Route path="/recetas" exact component= {ListRecipes}></Route>
            <Route path="/recetas/nuevareceta" component={NewRecipe}></Route>
