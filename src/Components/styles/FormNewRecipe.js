@@ -19,6 +19,7 @@ export const FormNewRecipe = styled.form`
         text-align: center;
     }
     .ingredients{
+        margin: 20px 0px;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -43,11 +44,12 @@ export const FormNewRecipe = styled.form`
             .deleteIngredient {
                 background-color: ${props => props.theme.orange};
                 border: none;
+                padding: 0px;
                 color: white;
+                height: 40px;
                 padding: 5px;
                 font-family: "Roboto", Arial, Helvetica, sans-serif;
                 border-radius: 5px;
-                box-sizing: content-box;
                 &:hover{
                     background-color: ${props => props.theme.red}
                 }
@@ -76,7 +78,9 @@ export const FormNewRecipe = styled.form`
             }
 
             .deleteIngredient{
-                background-color: ${props => props.theme.red}
+                background-color: ${props => props.theme.red};
+                width: 100px;
         }
+    }
     }
 `

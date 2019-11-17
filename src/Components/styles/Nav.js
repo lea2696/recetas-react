@@ -20,6 +20,7 @@ export const Nav = styled.div`
   ul {
     display: flex;
     width: 30%;
+    justify-content: space-around;
     li {
       font-size: 1.3rem;
       font-weight: bolder;

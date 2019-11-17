@@ -9,7 +9,6 @@ export default class DayDetails extends React.Component {
   }
 
   showRecipe = (context) => {
-    console.log(context.state.recipes)
     return context.state.recipes.map((recipe, index) => {
           let recipeString = JSON.stringify(recipe);
      return  <option key = {index}  value={recipeString}>{recipe.name}</option>
@@ -26,7 +25,6 @@ export default class DayDetails extends React.Component {
         amount: this.state.valueInput
       }
     };
-    console.log(recipe);
     this.setState({
       valueInput: "",
       valueSelect: "default"
@@ -43,7 +41,7 @@ export default class DayDetails extends React.Component {
   showRecipes = (context) => {
    return context.state.recipesAgenda.filter( recipe => JSON.stringify(recipe.day) === JSON.stringify(context.state.daySelected)
     ).map(
-      (recipe, i )=> <li key={i} >{recipe.recipe.recipe.name}</li>
+      (recipe, i )=><li key={i} >{recipe.recipe.recipe.name}</li>
     )
  
 
@@ -56,6 +54,11 @@ export default class DayDetails extends React.Component {
   }
 
   render() {
+    let defaultForm = true;
+    if(this.state.valueInput !== "" && this.state.valueSelect !== "default"){
+      defaultForm = false
+    } 
+    
     return (
       <DayStyled>
 
@@ -66,7 +69,8 @@ export default class DayDetails extends React.Component {
                 <>
                   <h3> Recetas para el  {context.state.daySelected.day}/{context.state.daySelected.month + 1}/{context.state.daySelected.year} </h3>
                   <ul>
-                    {this.showRecipes(context)&& <span>Parece que no tienes recetas para este dia</span> }
+                    {this.showRecipes(context).length === 0 ?  <span>Parece que no tienes ninguna receta agregada para este dia</span> : this.showRecipes(context) }
+
                   </ul>
 
                   <p> Agregar mas recetas </p>
@@ -84,7 +88,7 @@ export default class DayDetails extends React.Component {
                       <label>Numero de personas</label>
                       <input min="1" onChange={this.handleInput} value={this.state.valueInput} type="number" placeholder="Numero de personas"></input>
                     </div>
-                    <button> Agregar receta</button>
+                    <button disabled={defaultForm}> Agregar receta</button>
                   </form>
 
                 </>

@@ -30,7 +30,7 @@ export const ButtonGroup = styled.div`
 export const ButtonGroupDark = styled.div`
 display: flex;
 justify-content: center;
-button, span {
+button{
     text-align: center;
     color: black;
     text-transform: uppercase;
@@ -63,5 +63,6 @@ button, span {
     }
     .add {
       background-color: ${props => props.theme.green};
+  
     }
 `

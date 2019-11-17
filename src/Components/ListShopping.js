@@ -15,14 +15,10 @@ const ContainerDate = styled.div`
 `
 
 export default class ListShopping extends React.Component {
-    constructor(props){
-        super(props)
 
-    }
 
         componentDidMount(){
             let interval  = this.context.getDateInterval();
-            console.log(interval);
             if(interval !== {}){
                 this.setState({
                     firstDate: interval.firstDate,
@@ -68,7 +64,6 @@ export default class ListShopping extends React.Component {
     }
     
     render(){
-        console.log(this.state.recipes);
         return (
          <div> 
                         <Title>Selecciona un intervalo de fechas para generar una lista</Title>

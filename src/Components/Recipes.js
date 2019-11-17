@@ -37,7 +37,7 @@ export const Recipe = (props) =>{
        <p>Ingredientes: </p>
        <ul>
          { props.recipe.ingredients.map(ingredient=> 
-         <li>
+         <li key={ingredient.name}>
         <span>{ingredient.name} </span> 
         <span>{ingredient.amount} </span> 
         <span>{ingredient.unit} </span>

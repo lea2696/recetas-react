@@ -43,8 +43,7 @@ const AddRecipeButton = styled.button`
 `
 export default class ListRecipes extends React.Component{
         showRecipes = (context) => {
-            console.log(context);
-            return context.state.recipes.map(recipe=> <Recipe recipe={recipe} />)
+            return context.state.recipes.map(recipe=> <Recipe key={recipe.name} recipe={recipe} />)
         }
     render(){
         return(
