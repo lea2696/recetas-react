@@ -12,7 +12,24 @@ export default class MyProvider extends React.Component {
     recipesAgenda: [],
     dateInterval: {}
   };
-  render() {
+  componentDidMount(){
+    let status = JSON.parse(localStorage.getItem("status"));
+    this.setState({
+      recipes : status.recipes,
+      recipesAgenda: status.recipesAgenda
+    })
+
+  }
+  componentDidUpdate(){
+    let state = {
+      recipes:  this.state.recipes,
+      recipesAgenda: this.state.recipesAgenda
+    }
+    localStorage.setItem("status", JSON.stringify(state));
+
+  } 
+  
+    render() {
     return (
       <MyContext.Provider
         value={{
@@ -34,6 +51,11 @@ export default class MyProvider extends React.Component {
               this.setState({
                 recipesAgenda
               })
+          },
+          deleteRecipe: recipes => {
+            this.setState({
+              recipesAgenda: recipes
+            })
           },
           addToListOfRecipe: recipe => {
             let recipes = [...this.state.recipes];

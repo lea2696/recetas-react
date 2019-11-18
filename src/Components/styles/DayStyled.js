@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const DayStyled = styled.div`
 width: 40%;
-
+    span{
+      cursor: pointer;
+    }
     h3 {
       font-size: 1.5rem;
       text-align: center;

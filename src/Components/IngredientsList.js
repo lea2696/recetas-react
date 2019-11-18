@@ -2,10 +2,6 @@ import React from "react";
 import {MyContext} from "../themes/theme-context"
 
 export default class IngredientList extends React.Component {
-    componentDidMount(){
-        console.log(this.context);
-    }
-
     checkInterval = (date, first, final) =>{
         let year = date.year >= first.year && date.year <= final.year;
         let month = date.month >= first.month && date.month <= final.month;

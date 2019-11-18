@@ -16,6 +16,12 @@ export default class DayDetails extends React.Component {
 
     )
   }
+  deleteRecipe= (context, recipe) => {
+    let recipesAgenda = context.getRecipesAgenda();
+    let recipesStatus = recipesAgenda.filter(recipeDay => JSON.stringify(recipe)!==JSON.stringify(recipeDay))
+    context.deleteRecipe(recipesStatus)
+
+  }
   addRecipe = (e, context) => {
     e.preventDefault();
     let recipe = {
@@ -41,7 +47,7 @@ export default class DayDetails extends React.Component {
   showRecipes = (context) => {
    return context.state.recipesAgenda.filter( recipe => JSON.stringify(recipe.day) === JSON.stringify(context.state.daySelected)
     ).map(
-      (recipe, i )=><li key={i} >{recipe.recipe.recipe.name}</li>
+      (recipe, i )=><li key={i} >{recipe.recipe.recipe.name} <span onClick={()=>this.deleteRecipe(context, recipe)}>&#10008;</span></li> 
     )
  
 
