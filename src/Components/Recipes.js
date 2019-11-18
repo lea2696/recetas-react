@@ -14,7 +14,7 @@ const RecipeContainer = styled.div`
              
          }
          p{
-             text-decoration: underline;
+    
              font-weight: bolder;
          }
          li{
