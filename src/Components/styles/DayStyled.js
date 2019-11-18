@@ -18,6 +18,7 @@ width: 40%;
       font-weight: bolder;
       text-decoration: underline;
     }
+    
     form {
       display: flex;
       flex-wrap: wrap;
@@ -26,6 +27,8 @@ width: 40%;
           width: 50%;
             label{
               display: block;
+              font-weight: bolder;
+              margin: 5px;
             }
         }
         button{
@@ -53,8 +56,12 @@ width: 40%;
       ul{
         margin: 20px;
       }
-      label, input{
-        display: block;
+      form{
+        flex-direction: column;
+              input, select {
+                margin: 10px;
+                border: 1px solid gray;
+              }
       }
     }
 `
