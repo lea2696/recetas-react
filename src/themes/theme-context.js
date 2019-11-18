@@ -14,10 +14,13 @@ export default class MyProvider extends React.Component {
   };
   componentDidMount(){
     let status = JSON.parse(localStorage.getItem("status"));
-    this.setState({
-      recipes : status.recipes,
-      recipesAgenda: status.recipesAgenda
-    })
+    if(status){
+      this.setState({
+        recipes : status.recipes,
+        recipesAgenda: status.recipesAgenda
+      })
+      
+    }
 
   }
   componentDidUpdate(){
