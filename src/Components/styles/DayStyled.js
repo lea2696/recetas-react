@@ -53,7 +53,7 @@ width: 40%;
       ul{
         margin: 20px;
       }
-      label{
+      label, input{
         display: block;
       }
     }
