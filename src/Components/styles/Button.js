@@ -18,12 +18,8 @@ export const ButtonGroup = styled.div`
     border: none;
     transition: all 0.2s ease 0s;
     &:hover {
-      background: ${props => props.theme.red};
+      background: ${props => props.theme.orange};
       letter-spacing: 1px;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
-      transition: all 0.4s ease 0s;
     }
   }
 `;

@@ -9,6 +9,10 @@ import {Title} from "./styles/Title";
 const ContainerDate = styled.div`
     display: flex;
     justify-content: center;
+    h2{
+        margin: 0;
+    }
+      
         * {
             margin: 5px;
         }
@@ -67,7 +71,7 @@ export default class ListShopping extends React.Component {
         // TODO que solo aparezca un ingredient por cantidad y las cantidades se sumen 
         return (
          <div> 
-                        <Title>Selecciona un intervalo de fechas para generar una lista</Title>
+                        <h2 className="center">Selecciona un intervalo de fechas para generar una lista</h2>
              
                 <ContainerDate>
 

@@ -5,6 +5,8 @@ export const Nav = styled.div`
   border-bottom: 5px solid ${props => props.theme.red};
   justify-content: space-between;
   align-items: baseline;
+  margin: 5px 0px;
+  padding-bottom: 5px;
 
   h2 {
     display: inline-block;
@@ -12,7 +14,7 @@ export const Nav = styled.div`
     margin-left: 10px;
     a {
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-family: "Lobster", cursive;
       color: ${props => props.theme.black};
     }

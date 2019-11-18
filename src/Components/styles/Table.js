@@ -21,9 +21,10 @@ export const Table = styled.table`
       }
       .recipe-agenda {
         margin: 0;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         width: 100%;
         background-color: ${props => props.theme.blue};
+        color: white;
       }
     }
   }

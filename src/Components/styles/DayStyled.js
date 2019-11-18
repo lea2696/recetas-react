@@ -16,7 +16,6 @@ width: 40%;
     }
     p {
       font-weight: bolder;
-      text-decoration: underline;
     }
     
     form {
@@ -36,7 +35,7 @@ width: 40%;
           color: #fff !important;
           text-transform: uppercase;
           text-decoration: none;
-          background: #ed3330;
+          background: ${props => props.theme.red};
           margin: 5px;
           padding: 10px;
           border-radius: 5px;

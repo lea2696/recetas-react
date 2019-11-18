@@ -55,9 +55,9 @@ export default class ListRecipes extends React.Component{
                         <AddRecipeButton>
                             <Link to="/recetas/nuevareceta" >Crear receta</Link>
                         </AddRecipeButton>
-                        <Title>
+                        <h2 className="center">
                             Recetas
-                        </Title>
+                        </h2>
                         <ContainerRecipes>
                         {this.showRecipes(context)}
 
