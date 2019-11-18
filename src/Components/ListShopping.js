@@ -64,6 +64,7 @@ export default class ListShopping extends React.Component {
     }
     
     render(){
+        // TODO que solo aparezca un ingredient por cantidad y las cantidades se sumen 
         return (
          <div> 
                         <Title>Selecciona un intervalo de fechas para generar una lista</Title>

@@ -44,7 +44,7 @@ export const Recipe = (props) =>{
          </li>) }
        </ul>
        <p>
-           <span>Preparacion: </span> 
+           <span>Descripción: </span> 
           {props.recipe.description}
        </p>
        </RecipeContainer>
