@@ -2,7 +2,6 @@ import React from "react";
 import { Recipe } from "./Recipes";
 import styled from "styled-components";
 import {MyContext} from "../themes/theme-context";
-import { Title } from "./styles/Title"
 import { Link } from "react-router-dom"
 const ContainerRecipes = styled.div `
     display: flex;
