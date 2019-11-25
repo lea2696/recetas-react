@@ -4,6 +4,9 @@ import  { Link } from "react-router-dom"
 
 export default class Header extends React.Component {
   render() {
+    // if(this.props.showNav){
+
+    
     return (
       <div>
         <Nav>
@@ -37,5 +40,14 @@ export default class Header extends React.Component {
         </Nav>
       </div>
     );
-  }
+  // } else{
+  //   return  <Nav>
+  //     <h2>
+  //       <Link to="/">
+  //            Shopping Easy
+  //          </Link>
+  //          </h2>
+  //   </Nav>
+  // }
+}
 }

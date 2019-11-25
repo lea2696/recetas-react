@@ -1,103 +1,90 @@
 import React from "react";
-import styled from "styled-components";
-import {Redirect} from "react-router-dom";
-import { LoginUser, CheckToken } from "../auth/auth";
-const BodyContainer = styled.div`
-    height: 70vh;
-    overflow: hidden;
-    background-image: linear-gradient(to  bottom,#feac1740 ,rgba(255, 255, 255, 0.6));
-
-`;
-const LoginContainer = styled.div`   
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    background-color: white;
-    padding: 20px 40px 40px 40px;
-     box-shadow: 0 0 5px #808080;
-        h2 {
-            text-align: center;
-            font-weight: bolder;
-            font-family: "Roboto", Arial, Helvetica, sans-serif;
-        }
-        form {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-                label{
-                    margin: 10px;
-                    display: block;
-                    text-align: center;
-                }
-                input {
-                    border: 1px solid gray;
-                    height: 25px;
-                }
-                button{
-                    display: block;
-                    width: 100%;
-                    background-color: #75cf38;
-                    color: white;
-                    margin-top: 20px;
-                    font-size: 1.2rem;
-                    border: none;
-                    padding: 5px;
-        }
-        }
-        p{  position: absolute;
-        bottom: 10px;
-            font-size: 0.8rem;
-            a {
-                color: black;
-            }
-                
-        }
-`
+import {Redirect, Link} from "react-router-dom";
+import { LoginUser} from "../auth/auth";
+import { BodyContainer, LoginContainer } from "./styles/LoginStyle";
 
 export default class Login extends React.Component {
     state = {
         email: "",
         password: "",
+        errors : {
+            email: true,
+            password: true
+        },
+        token: false
+        
     }
-    handleInputUser = (e) => {
-        let email = e.target.value;
+    componentDidMount(){
+         console.log("entre");
+        if(localStorage.getItem("token")){
+            this.setState({
+                token: true
+            })
+        }
+    }
+    
+    handleChange = (e) => {
+        const {name, value} = e.target;
+        let errors ={...this.state.errors};
+
+        switch(name) {
+            case "email" : 
+            if(value.length < 4) {
+                errors[name] = "El email es invalido"
+            } else{
+                errors[name] = false
+            }
+            break;
+            case "password" : 
+            if(value.length < 6 ) {
+                errors[name] = "El password debe ser de minimo 6 caracteres"
+            }else{
+                errors[name] = false
+            }
+            break;
+            default: break;
+        }
         this.setState({
-            email
+            [name]: value,
+            errors
         })
+
     }
-    handleInputPassword = (e) => {
-        let password = e.target.value;
-        this.setState({
-            password
-        })
-    }
-    handleSubmit = async (e) => {
+   
+    handleSubmit = async (e, validity) => {
         e.preventDefault();
+        if(validity){ //Is the form is valid
         let data = {
             email : this.state.email,
             password: this.state.password
         }
-       let dataUser = await LoginUser(data);
-       console.log(dataUser)
-       if(dataUser.token){
-           localStorage.setItem("token", dataUser.token);
-           let check = await CheckToken(dataUser.token);
-           console.log(check);
-            this.setState({
-                token: dataUser.token
-            })
-       }
-       this.setState({
-           email: "",
-           password: ""
-       })
 
+       let dataUser = await LoginUser(data);
+       let token = dataUser.token;
+    
+       if(token && this.state.token === false ){
+            localStorage.setItem("token", dataUser.token);  
+            return this.setState({
+                token: true
+            })    
+       } 
+      
+    }
+    }
+
+    checkForm = (errors) =>{
+        let valid = true;
+    Object.values(errors).forEach(
+    // if we have an error string set valid to false
+    (val) => val  && (valid = false)
+  );
+  return valid;
     }
 
     render(){
+
+        let validity = this.checkForm(this.state.errors);
+
         if(this.state.token){
             return <Redirect to="/agenda" />
         } else{
@@ -105,14 +92,14 @@ export default class Login extends React.Component {
             <BodyContainer>
         <LoginContainer>
             <h2>Login</h2>
-            <form onSubmit = {this.handleSubmit}>
+            <form onSubmit = {(e)=>this.handleSubmit(e, validity)}>
                 <label>Email</label>
-                <input type="text" value={this.state.email} onChange = {this.handleInputUser} />
+                <input type="email" name="email" value={this.state.email} onChange = {this.handleChange} required />
                 <label>Contraseña</label>
-                <input type="password" value={this.state.password} onChange = {this.handleInputPassword} />
-                <button>Login</button>
+                <input type="password"  name="password" value={this.state.password} onChange = {this.handleChange} required />
+                <button disabled={!validity}>Login</button>
             </form>
-            <p>No eres miembro? <a href="/"> Crea tu usuario</a></p>
+            <p>No eres miembro? <Link to="/new-user"> Crea tu usuario</Link></p>
         </LoginContainer>
         </BodyContainer>
         )
