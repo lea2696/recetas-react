@@ -29,7 +29,7 @@ export default class ListShopping extends React.Component {
                     finalDate: interval.finalDate
                 })
 
-                this.searchRecipes();
+                
             }
         }
 
@@ -59,13 +59,7 @@ export default class ListShopping extends React.Component {
         this.context.putDateInterval(interval)
 
     }
-    searchRecipes = () =>{
-        let recipes = this.context.getRecipesAgenda();
-        
-        this.setState({
-            recipes
-        });
-    }
+ 
     
     render(){
         // TODO que solo aparezca un ingredient por cantidad y las cantidades se sumen 
@@ -91,7 +85,7 @@ export default class ListShopping extends React.Component {
                         <>
                         <Title> Ingredientes </Title> 
                         <IngredientsList
-                            recipes={this.state.recipes}  firstDate={this.state.firstDate} finalDate={this.state.finalDate} />
+                            recipes={context.getRecipesAgenda()}  firstDate={this.state.firstDate} finalDate={this.state.finalDate} />
                         </>
                         }
                    

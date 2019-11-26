@@ -15,7 +15,6 @@ export default class Login extends React.Component {
         
     }
     componentDidMount(){
-         console.log("entre");
         if(localStorage.getItem("token")){
             this.setState({
                 token: true

@@ -19,7 +19,7 @@ export const LoginUser = async (user) => {
             email: user.email,
             password: user.password
         }
-        console.log(data)
+
    return axios.post(`${url}/login`, data)
     .then(response=>{
         return response.data
@@ -55,5 +55,13 @@ export const CreateUser = async (user) => {
        return err.response;
     })
 
+}
+export const GetRecipes = (token) => {
+    console.log(token);
+    return axios.get(`${url}/recipes/common-recipe`, null , {
+        headers: {
+            token: token
+        }});
+  
 }
 

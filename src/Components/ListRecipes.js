@@ -2,7 +2,8 @@ import React from "react";
 import { Recipe } from "./Recipes";
 import styled from "styled-components";
 import {MyContext} from "../themes/theme-context";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import {GetRecipes} from "../auth/auth"
 const ContainerRecipes = styled.div `
     display: flex;
     flex-wrap: wrap;
@@ -41,6 +42,20 @@ const AddRecipeButton = styled.button`
 
 `
 export default class ListRecipes extends React.Component{
+        componentDidMount(){
+            let token = localStorage.getItem("token");
+            let recipes = []
+            // GetRecipes(token)
+            // .then(
+            //     res=> {
+            //         console.log(res)
+            //     }
+            // )
+            // .catch(err => {
+            //     console.log(err.response)
+            // })
+        }
+
         showRecipes = (context) => {
             return context.state.recipes.map(recipe=> <Recipe key={recipe.name} recipe={recipe} />)
         }
