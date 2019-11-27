@@ -2,6 +2,7 @@ import React from "react";
 import {Redirect, Link} from "react-router-dom";
 import { LoginUser} from "../auth/auth";
 import { BodyContainer, LoginContainer } from "./styles/LoginStyle";
+import {UserContext} from "../themes/User-context";
 
 export default class Login extends React.Component {
     state = {
@@ -63,6 +64,7 @@ export default class Login extends React.Component {
     
        if(token && this.state.token === false ){
             localStorage.setItem("token", dataUser.token);  
+            this.context.addToken(token);
             return this.setState({
                 token: true
             })    
@@ -105,3 +107,4 @@ export default class Login extends React.Component {
     }
 }
 }
+Login.contextType = UserContext;
