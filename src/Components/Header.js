@@ -12,7 +12,7 @@ export default class Header extends React.Component {
         <Nav>
           <h2>
            <Link to="/">
-             Shopping Easy
+             Easy Shopping
            </Link>
           </h2>
           <ul>
