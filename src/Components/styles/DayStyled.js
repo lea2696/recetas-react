@@ -32,16 +32,19 @@ width: 40%;
         }
         button{
         
-          color: #fff !important;
+          color: #fff ;
           text-transform: uppercase;
           text-decoration: none;
-          background: ${props => props.theme.red};
+          background-color: ${props => props.theme.orange};
           margin: 5px;
           padding: 10px;
           border-radius: 5px;
           display: inline-block;
           border: none;
           transition: all 0.4s ease 0s;
+              &:disabled {
+                        background-color: ${props => props.theme.red};
+                         }
           
         }
     }
