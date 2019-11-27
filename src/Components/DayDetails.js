@@ -24,10 +24,17 @@ export default class DayDetails extends React.Component {
   }
   addRecipe = (e, context) => {
     e.preventDefault();
+   let recipeWithAmount = JSON.parse(this.state.valueSelect);
+   recipeWithAmount.ingredients.forEach((element, i, arr) => {
+      recipeWithAmount.ingredients[i].amount = element.amount*this.state.valueInput
+     
+   });
+ 
+
     let recipe = {
       day: context.state.daySelected,
       recipe: {
-        recipe: JSON.parse(this.state.valueSelect),
+        recipe: recipeWithAmount,
         amount: this.state.valueInput
       }
     };
@@ -47,7 +54,7 @@ export default class DayDetails extends React.Component {
   showRecipes = (context) => {
    return context.state.recipesAgenda.filter( recipe => JSON.stringify(recipe.day) === JSON.stringify(context.state.daySelected)
     ).map(
-      (recipe, i )=><li key={i} >{recipe.recipe.recipe.name} <span onClick={()=>this.deleteRecipe(context, recipe)}>&#10008;</span></li> 
+      (recipe, i )=><li key={i} >{recipe.recipe.recipe.name} para {recipe.recipe.amount} personas <span onClick={()=>this.deleteRecipe(context, recipe)}>&#10008;</span></li> 
     )
  
 
